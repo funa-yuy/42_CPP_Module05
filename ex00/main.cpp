@@ -2,9 +2,6 @@
 
 int main()
 {
-
-// 無効な評点を持つ Bureaucrat をインスタンス化しようとすると例外が発生する：
-
 	{
 		std::cout << "------ 正常 ------" << std::endl;
 		try {

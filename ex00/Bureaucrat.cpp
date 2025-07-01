@@ -3,7 +3,7 @@
 /*
  * デフォルトコンストラクタ
  */
-Bureaucrat::Bureaucrat() : _grade(150) {
+Bureaucrat::Bureaucrat() : _grade(0) {
 	std::cout << _name << ": Bureaucrat デフォルトコンストラクタが呼ばれました" << std::endl;
 }
 
@@ -11,7 +11,7 @@ Bureaucrat::Bureaucrat() : _grade(150) {
  * コンストラクタ
  * 例外は投げるだけで、エラー検知や処理は呼び出し元(mian関数)で行う。
  */
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
 	std::cout << _name << ": Bureaucrat コンストラクタが呼ばれました" << std::endl;
 	if (grade < 1)
 		throw GradeTooHighException();
@@ -22,6 +22,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 
 /*
  * コピーコンストラクタ
+ * コピー元のオブジェクトは既に有効な状態にあるはずなので、例外は投げない
  */
 Bureaucrat::Bureaucrat(const Bureaucrat& copy) : _name(copy._name), _grade(copy._grade) {
 	std::cout << _name << ": Bureaucrat コピーコンストラクタが呼ばれました" << std::endl;
@@ -57,22 +58,19 @@ const int&	Bureaucrat::getGrade() const {
 	return (_grade);
 }
 
-//階級を高くする→今の値より0に近づける
+//gradeを高くする→今の値より0に近づける
 void	Bureaucrat::increaseGrade() {
-	//等級が範囲外になった場合、両方の関数はコンストラクタと同じ例外を投げ(throw)なければなりません。
-	if (_grade - 1 < 1)
+	if (_grade - 1 < 1) //gradeが範囲外になる場合、例外を投げる
 		throw GradeTooHighException();
 	_grade = _grade - 1;
 }
 
-//階級を高くする→今の値より150に近づける
+//gradeを低くする→今の値より150に近づける
 void	Bureaucrat::decrementGrade() {
-	//等級が範囲外になった場合、両方の関数はコンストラクタと同じ例外を投げ(throw)なければなりません。
-	if (_grade + 1 > 150)
+	if (_grade + 1 > 150) //gradeが範囲外になる場合、例外を投げる
 		throw GradeTooLowException();
 	_grade = _grade + 1;
 }
-
 
 // カスタム例外クラス ---------------------------------------------
 //1以下
