@@ -41,7 +41,7 @@ class Bureaucrat {
 				virtual const char* what() const throw(); //std::exceptionのwhat()をオーバーロード
 		};
 
-	protected:
+	private:
 		std::string	_name;
 		int			_grade;//1(最高)~150(最低)
 };
