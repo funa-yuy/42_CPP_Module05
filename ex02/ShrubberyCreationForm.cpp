@@ -49,8 +49,28 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 
 // 作業ディレクトリにファイル <target>_shrubbery を作成し、その中に ASCII ツリーを書き込みます。
 void	ShrubberyCreationForm::actionExecute() const {
-	std::cout << "\x1b[32mThe ASCII tree was written to " << _target << "_shrubbery.\x1b[39m"<< std::endl;
 	std::ofstream file(_target + "_shrubbery");
-	file << "ASCII trees";
+	if (!file)
+	{
+		std::cout << "Error: Open failed." << std::endl;
+		return ;
+	}
+	file << "         v" << std::endl;
+	file << "        >X<" << std::endl;
+	file << "         A" << std::endl;
+	file << "        d$b" << std::endl;
+	file << "      .d$$$b." << std::endl;
+	file << "    .d$i$$$$b." << std::endl;
+	file << "       d$$@b" << std::endl;
+	file << "      d$$$$ib" << std::endl;
+	file << "    .d$$$$$$$b" << std::endl;
+	file << "  .d$$@$$$$$$$ib." << std::endl;
+	file << "      d$$$$$b" << std::endl;
+	file << "    .d$$$$$$$b" << std::endl;
+	file << "   .d$$@$$$$$$$ib." << std::endl;
+	file << " .d$$$$i$$$$$$$$$$b." << std::endl;
+	file << "         ##" << std::endl;
+	file << "         ##" << std::endl;
+	file << "         ##" << std::endl;
 	file.close();
 }

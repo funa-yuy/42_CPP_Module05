@@ -91,9 +91,3 @@ int main()
 	}
 	return 0;
 }
-
-//官僚クラス executeForm（）
-// ↓
-// Formクラス execute
-// ↓
-// 具象クラス フォームのアクションを実行する関数

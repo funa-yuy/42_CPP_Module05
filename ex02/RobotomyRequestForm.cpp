@@ -51,9 +51,8 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 // それ以外の場合は、ロボット化が失敗したことを通知します。
 void	RobotomyRequestForm::actionExecute() const {
 	std::cout << "\x1b[32mGagagagaga.........."<< std::endl;
-	//todo 直す
-	srand(time(NULL)); // 乱数の初期化
-	if (rand() % 2 == 0 )
+	static	int	num = 0;
+	if (num++ % 2 == 0 )
 		std::cout << _target << " has been successfully robotized.\x1b[39m"<< std::endl;
 	else
 		std::cout << "Failed to robotize " << _target << ".\x1b[39m" << std::endl;
