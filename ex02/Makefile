@@ -6,7 +6,7 @@
 #    By: miyuu <miyuu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/31 18:25:47 by miyuu             #+#    #+#              #
-#    Updated: 2025/07/02 14:32:44 by miyuu            ###   ########.fr        #
+#    Updated: 2025/07/02 15:44:42 by miyuu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,14 @@ NAME = Bureaucrat
 SRCS = \
 		main.cpp \
 		Bureaucrat.cpp \
-		Form.cpp
+		AForm.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp \
 
 HEADERS = \
 		Bureaucrat.hpp \
-		Form.hpp \
+		AForm.hpp \
 		PresidentialPardonForm.hpp \
 		RobotomyRequestForm.hpp \
 		ShrubberyCreationForm.hpp \

@@ -72,7 +72,7 @@ void	Bureaucrat::decrementGrade() {
 	_grade = _grade + 1;
 }
 
-void	Bureaucrat::signForm(Form& f) const {
+void	Bureaucrat::signForm(AForm& f) const {
 	try {
 		f.beSigned(*this);
 		//beSignedから例外が投げられたら、これ以下は実行されずに、catchに行く。
@@ -82,11 +82,8 @@ void	Bureaucrat::signForm(Form& f) const {
 	}
 }
 
-//todo
-//この関数はフォームの実行を試みます。成功した場合は、次のような出力を出力します。
-// `<bureaucrat> executed <form>`
-// そうでない場合は、明示的なエラー メッセージを出力します。
-void	Bureaucrat::executeForm(Form const & form) const {
+//この関数はフォームの実行を試みます
+void	Bureaucrat::executeForm(AForm const & form) const {
 	try
 	{
 		form.execute(*this);//例外が投げられたらエラー
@@ -94,7 +91,7 @@ void	Bureaucrat::executeForm(Form const & form) const {
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << this->getName() << " couldn't executed " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << this->getName() << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
 	}
 
 }
@@ -103,12 +100,12 @@ void	Bureaucrat::executeForm(Form const & form) const {
 // カスタム例外クラス ---------------------------------------------
 //1以下
 const char*	Bureaucrat::GradeTooHighException::what() const throw() {
-	return ("The grade is too high.");
+	return ("\x1b[35mThe grade is too high.\x1b[39m");
 }
 
 //150以上
 const char*	Bureaucrat::GradeTooLowException::what() const throw() {
-	return ("The grade is too low.");
+	return ("\x1b[35mThe grade is too low.\x1b[39m");
 }
 
 

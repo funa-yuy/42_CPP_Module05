@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 // ------------------------------------------------
 // include
@@ -7,7 +7,6 @@
 
 #include <iostream>
 #include <string>
-#include <cstdlib>
 #include"Bureaucrat.hpp"
 
 // ------------------------------------------------
@@ -16,13 +15,13 @@
 
 class	Bureaucrat;
 
-class Form {
+class AForm {
 	public:
-		Form();
-		Form(const std::string& name, int grade_for_sign, int grade_for_exec);
-		Form& operator=(const Form& copy);
-		Form(const Form& copy);
-		virtual ~Form() = 0;
+		AForm();
+		AForm(const std::string& name, int grade_for_sign, int grade_for_exec);
+		AForm& operator=(const AForm& copy);
+		AForm(const AForm& copy);
+		virtual ~AForm() = 0;
 
 		const std::string&	getName() const;
 		const bool&	getIsSigned() const;
@@ -46,9 +45,19 @@ class Form {
 				virtual const char* what() const throw(); //std::exceptionのwhat()をオーバーロード
 		};
 
+		//std::exceptionを継承したカスタム例外クラス
+		class FormIsNotSigned : public std::exception
+		{
+			public:
+				virtual const char* what() const throw(); //std::exceptionのwhat()をオーバーロード
+		};
+
+		void	execute(Bureaucrat const & executor) const;
+
+	protected://外部から呼び出されることはなく、派生クラスからのみ呼び出されるため、protected
 		// フォームが署名されていることと、フォームを実行しようとするbureaucratのgradeが十分高いことをチェックしなければなりません。
 		// そうでなければ、適切な例外(exception)を投げる(throw)。
-		virtual void	execute(Bureaucrat const & executor) const = 0;//純粋仮想関数
+		virtual void	actionExecute() const = 0;//純粋仮想関数
 
 	private:
 		const std::string	_name;
@@ -61,6 +70,6 @@ class Form {
 // function
 // ------------------------------------------------
 
-std::ostream &operator<<(std::ostream &os, const Form &rhs);
+std::ostream &operator<<(std::ostream &os, const AForm &rhs);
 
 #endif

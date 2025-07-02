@@ -7,14 +7,13 @@
 
 #include <iostream>
 #include <string>
-#include <cstdlib>
-#include"Form.hpp"
+#include"AForm.hpp"
 
 // ------------------------------------------------
 // class
 // ------------------------------------------------
 
-class	Form;
+class	AForm;
 
 class Bureaucrat {
 	public:
@@ -44,13 +43,13 @@ class Bureaucrat {
 				virtual const char* what() const throw(); //std::exceptionのwhat()をオーバーロード
 		};
 
-		void	signForm(Form& f) const;
+		void	signForm(AForm& f) const;
 
 
 		//この関数はフォームの実行を試みます。成功した場合は、次のような出力を出力します。
 		// `<bureaucrat> executed <form>`
 		// そうでない場合は、明示的なエラー メッセージを出力します。
-		void	executeForm(Form const & form) const;
+		void	executeForm(AForm const & form) const;
 
 	private:
 		std::string	_name;
