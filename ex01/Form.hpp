@@ -46,7 +46,7 @@ class Form {
 				virtual const char* what() const throw(); //std::exceptionのwhat()をオーバーロード
 		};
 
-	protected:
+	private:
 		const std::string	_name;
 		bool				_is_signed;
 		const int			_grade_for_sign;//署名に必要な定数grade

@@ -36,3 +36,5 @@
 **/.DS_Store
 */bin
 */Bureaucrat
+*/*_shrubbery.txt
+**/*.md
