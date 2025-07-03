@@ -55,8 +55,6 @@ class AForm {
 		void	execute(Bureaucrat const & executor) const;
 
 	protected://外部から呼び出されることはなく、派生クラスからのみ呼び出されるため、protected
-		// フォームが署名されていることと、フォームを実行しようとするbureaucratのgradeが十分高いことをチェックしなければなりません。
-		// そうでなければ、適切な例外(exception)を投げる(throw)。
 		virtual void	actionExecute() const = 0;//純粋仮想関数
 
 	private:

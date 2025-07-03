@@ -81,10 +81,6 @@ void	AForm::execute(Bureaucrat const & executor) const {
 	actionExecute();
 }
 
-//外部から呼び出されることはなく、派生クラスからのみ呼び出されるため、protected
-// フォームが署名されていることと、フォームを実行しようとするbureaucratのgradeが十分高いことをチェックしなければなりません。
-// そうでなければ、適切な例外(exception)を投げる(throw)。
-
 
 // カスタム例外クラス ---------------------------------------------
 //1以下

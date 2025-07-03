@@ -7,23 +7,22 @@ Intern::Intern() {
 	std::cout << "Intern デフォルトコンストラクタが呼ばれました" << std::endl;
 }
 
-// /*
-//  * コピーコンストラクタ
-//  */
-// Intern::Intern(const Intern& copy) {
-// 	std::cout << "Intern コピーコンストラクタが呼ばれました" << std::endl;
-// }
+/*
+ * コピーコンストラクタ
+ */
+Intern::Intern(const Intern& copy) {
+	std::cout << "Intern コピーコンストラクタが呼ばれました" << std::endl;
+	(void)copy;
+}
 
-// /*
-//  * コピー代入演算子 (A copy assignment operator overload.)
-//  */
-// Intern &Intern::operator=(const Intern& copy) {
-// 	std::cout << "Intern コピー代入演算子が呼ばれました" << std::endl;
-// 	if (this != &copy) {
-
-// 	}
-// 	return (*this);
-// }
+/*
+ * コピー代入演算子 (A copy assignment operator overload.)
+ */
+Intern &Intern::operator=(const Intern& copy) {
+	std::cout << "Intern コピー代入演算子が呼ばれました" << std::endl;
+	(void)copy;
+	return (*this);
+}
 
 /*
  * デストラクタ
@@ -62,11 +61,10 @@ AForm*	Intern::makeForm(const std::string& form, const std::string& target) {
 	{
 		if (formNames[i] == form)
 		{
-			std::cout << formNames[i] << "を実行" << std::endl;
-			std::cout << "Intern creates " << form << std::endl;
+			std::cout << "\x1b[36mIntern creates " << form << "\x1b[39m" << std::endl;
 			return ((this->*func[i])(target));
 		}
 	}
-	std::cout << "Intern was unable to create form \"" << form << "\" ." << std::endl;
+	std::cout << "\x1b[36mIntern was unable to create form \"" << form << "\" .\x1b[39m" << std::endl;
 	return (NULL);
 }
