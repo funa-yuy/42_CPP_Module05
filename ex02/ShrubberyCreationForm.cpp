@@ -49,7 +49,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 
 // 作業ディレクトリにファイル <target>_shrubbery を作成し、その中に ASCII ツリーを書き込みます。
 void	ShrubberyCreationForm::actionExecute() const {
-	std::ofstream file(_target + "_shrubbery");
+	std::ofstream file((_target + "_shrubbery").c_str());
 	if (!file)
 	{
 		std::cout << "Error: Open failed." << std::endl;
