@@ -3,34 +3,25 @@
 /*
  * デフォルトコンストラクタ
  */
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) {
-	std::cout << this->getName() << ": ShrubberyCreationForm デフォルトコンストラクタが呼ばれました" << std::endl;
-}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) {}
 
 /*
  * コンストラクタ
  */
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
- : AForm("ShrubberyCreationForm", 145, 137), _target(target)
-{
-	std::cout << this->getName() << ": ShrubberyCreationForm コンストラクタが呼ばれました" << std::endl;
-}
+ : AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
 
 
 /*
  * コピーコンストラクタ
  */
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy)
-	: AForm(copy), _target(copy._target)
-{
-	std::cout << this->getName() << ": ShrubberyCreationForm コピーコンストラクタが呼ばれました" << std::endl;
-}
+	: AForm(copy), _target(copy._target) {}
 
 /*
  * コピー代入演算子 (A copy assignment operator overload.)
  */
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm& copy) {
-	std::cout << this->getName() << ": ShrubberyCreationForm コピー代入演算子が呼ばれました" << std::endl;
 	if (this != &copy) {
 		AForm::operator=(copy);
 		_target = copy._target;
@@ -41,9 +32,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 /*
  * デストラクタ
  */
-ShrubberyCreationForm::~ShrubberyCreationForm() {
-	std::cout << this->getName() << ": ShrubberyCreationForm デストラクタが呼ばれました" << std::endl;
-}
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 // ↑↑↑ Orthodox Canonical Form --------------------------------------
 

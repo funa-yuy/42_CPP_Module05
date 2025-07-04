@@ -3,34 +3,25 @@
 /*
  * デフォルトコンストラクタ
  */
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) {
-	std::cout << this->getName() << ": RobotomyRequestForm デフォルトコンストラクタが呼ばれました" << std::endl;
-}
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) {}
 
 /*
  * コンストラクタ
  */
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
- : AForm("RobotomyRequestForm", 72, 45), _target(target)
-{
-	std::cout << this->getName() << ": RobotomyRequestForm コンストラクタが呼ばれました" << std::endl;
-}
+ : AForm("RobotomyRequestForm", 72, 45), _target(target) {}
 
 
 /*
  * コピーコンストラクタ
  */
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& copy)
-	: AForm(copy), _target(copy._target)
-{
-	std::cout << this->getName() << ": RobotomyRequestForm コピーコンストラクタが呼ばれました" << std::endl;
-}
+	: AForm(copy), _target(copy._target) {}
 
 /*
  * コピー代入演算子 (A copy assignment operator overload.)
  */
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm& copy) {
-	std::cout << this->getName() << ": RobotomyRequestForm コピー代入演算子が呼ばれました" << std::endl;
 	if (this != &copy) {
 		AForm::operator=(copy);
 		_target = copy._target;
@@ -41,9 +32,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm& c
 /*
  * デストラクタ
  */
-RobotomyRequestForm::~RobotomyRequestForm() {
-	std::cout << this->getName() << ": RobotomyRequestForm デストラクタが呼ばれました" << std::endl;
-}
+RobotomyRequestForm::~RobotomyRequestForm() {}
 
 // ↑↑↑ Orthodox Canonical Form --------------------------------------
 

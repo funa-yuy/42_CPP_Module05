@@ -3,16 +3,13 @@
 /*
  * デフォルトコンストラクタ
  */
-Bureaucrat::Bureaucrat() : _grade(0) {
-	std::cout << _name << ": Bureaucrat デフォルトコンストラクタが呼ばれました" << std::endl;
-}
+Bureaucrat::Bureaucrat() : _grade(0) {}
 
 /*
  * コンストラクタ
  * 例外は投げるだけで、エラー検知や処理は呼び出し元(mian関数)で行う。
  */
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
-	std::cout << _name << ": Bureaucrat コンストラクタが呼ばれました" << std::endl;
 	if (grade < 1)
 		throw GradeTooHighException();
 	else if (grade > 150)
@@ -24,15 +21,12 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
  * コピーコンストラクタ
  * コピー元のオブジェクトは既に有効な状態にあるはずなので、例外は投げない
  */
-Bureaucrat::Bureaucrat(const Bureaucrat& copy) : _name(copy._name), _grade(copy._grade) {
-	std::cout << _name << ": Bureaucrat コピーコンストラクタが呼ばれました" << std::endl;
-}
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) : _name(copy._name), _grade(copy._grade) {}
 
 /*
  * コピー代入演算子 (A copy assignment operator overload.)
  */
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat& copy) {
-	std::cout << _name << ": Bureaucrat コピー代入演算子が呼ばれました" << std::endl;
 	if (this != &copy) {
 		_name = copy._name;
 		_grade = copy._grade;
@@ -43,9 +37,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat& copy) {
 /*
  * デストラクタ
  */
-Bureaucrat::~Bureaucrat() {
-	std::cout << _name << ": Bureaucrat デストラクタが呼ばれました" << std::endl;
-}
+Bureaucrat::~Bureaucrat() {}
 
 
 // ↑↑↑ Orthodox Canonical Form --------------------------------------
