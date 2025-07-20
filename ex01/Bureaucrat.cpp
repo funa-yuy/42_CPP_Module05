@@ -34,7 +34,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat& copy) : _name(copy._name), _grade(copy.
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat& copy) {
 	std::cout << _name << ": Bureaucrat コピー代入演算子が呼ばれました" << std::endl;
 	if (this != &copy) {
-		_name = copy._name;
 		_grade = copy._grade;
 	}
 	return (*this);
@@ -54,7 +53,7 @@ const std::string&	Bureaucrat::getName() const {
 	return (_name);
 }
 
-const int&	Bureaucrat::getGrade() const {
+int	Bureaucrat::getGrade() const {
 	return (_grade);
 }
 

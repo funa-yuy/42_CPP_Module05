@@ -25,7 +25,7 @@ class Bureaucrat {
 		~Bureaucrat();
 
 		const std::string&	getName() const;
-		const int&	getGrade() const;
+		int	getGrade() const;
 
 		void	increaseGrade();
 		void	decrementGrade();
@@ -46,7 +46,7 @@ class Bureaucrat {
 
 		void	signForm(Form& f) const;
 	private:
-		std::string	_name;
+		const std::string	_name;
 		int			_grade;//1(最高)~150(最低)
 };
 
