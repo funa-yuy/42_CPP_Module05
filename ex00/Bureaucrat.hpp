@@ -21,8 +21,8 @@ class Bureaucrat {
 		Bureaucrat(const Bureaucrat& copy);
 		~Bureaucrat();
 
-		const std::string&	getName() const;
-		const int&	getGrade() const;
+		const	std::string&	getName() const;
+		int	getGrade() const;
 
 		void	increaseGrade();
 		void	decrementGrade();
@@ -42,7 +42,7 @@ class Bureaucrat {
 		};
 
 	private:
-		std::string	_name;
+		const std::string	_name;
 		int			_grade;//1(最高)~150(最低)
 };
 
