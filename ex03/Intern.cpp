@@ -3,15 +3,12 @@
 /*
  * デフォルトコンストラクタ
  */
-Intern::Intern() {
-	std::cout << "Intern デフォルトコンストラクタが呼ばれました" << std::endl;
-}
+Intern::Intern() {}
 
 /*
  * コピーコンストラクタ
  */
 Intern::Intern(const Intern& copy) {
-	std::cout << "Intern コピーコンストラクタが呼ばれました" << std::endl;
 	(void)copy;
 }
 
@@ -19,7 +16,6 @@ Intern::Intern(const Intern& copy) {
  * コピー代入演算子 (A copy assignment operator overload.)
  */
 Intern &Intern::operator=(const Intern& copy) {
-	std::cout << "Intern コピー代入演算子が呼ばれました" << std::endl;
 	(void)copy;
 	return (*this);
 }
@@ -27,9 +23,7 @@ Intern &Intern::operator=(const Intern& copy) {
 /*
  * デストラクタ
  */
-Intern::~Intern() {
-	std::cout << "Intern デストラクタが呼ばれました" << std::endl;
-}
+Intern::~Intern() {}
 
 // ↑↑↑ Orthodox Canonical Form --------------------------------------
 

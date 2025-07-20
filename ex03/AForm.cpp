@@ -3,9 +3,7 @@
 /*
  * デフォルトコンストラクタ
  */
-AForm::AForm() : _is_signed(false), _grade_for_sign(0), _grade_for_exec(0) {
-	std::cout << _name << ": AForm デフォルトコンストラクタが呼ばれました" << std::endl;
-}
+AForm::AForm() : _is_signed(false), _grade_for_sign(0), _grade_for_exec(0) {}
 
 /*
  * コンストラクタ
@@ -14,7 +12,6 @@ AForm::AForm() : _is_signed(false), _grade_for_sign(0), _grade_for_exec(0) {
 AForm::AForm(const std::string& name, int grade_for_sign, int grade_for_exec)
 	 : _name(name), _is_signed(false), _grade_for_sign(grade_for_sign), _grade_for_exec(grade_for_exec)
 {
-	std::cout << _name << ": AForm コンストラクタが呼ばれました" << std::endl;
 	if (grade_for_sign < 1 || grade_for_exec < 1)
 		throw AForm::GradeTooHighException();
 	else if (grade_for_sign > 150 || grade_for_exec > 150)
@@ -25,16 +22,15 @@ AForm::AForm(const std::string& name, int grade_for_sign, int grade_for_exec)
  * コピーコンストラクタ
  */
 AForm::AForm(const AForm& copy)
-	: _name(copy._name), _is_signed(copy._is_signed), _grade_for_sign(copy._grade_for_sign), _grade_for_exec(copy._grade_for_exec)
-{
-	std::cout << _name << ": AForm コピーコンストラクタが呼ばれました" << std::endl;
-}
+	: _name(copy._name),
+	_is_signed(copy._is_signed),
+	_grade_for_sign(copy._grade_for_sign),
+	_grade_for_exec(copy._grade_for_exec){}
 
 /*
  * コピー代入演算子 (A copy assignment operator overload.)
  */
 AForm &AForm::operator=(const AForm& copy) {
-	std::cout << _name << ": AForm コピー代入演算子が呼ばれました" << std::endl;
 	if (this != &copy) {
 		_is_signed = copy._is_signed;
 	}
@@ -44,9 +40,7 @@ AForm &AForm::operator=(const AForm& copy) {
 /*
  * デストラクタ
  */
-AForm::~AForm() {
-	std::cout << _name << ": AForm デストラクタが呼ばれました" << std::endl;
-}
+AForm::~AForm() {}
 
 
 // ↑↑↑ Orthodox Canonical Form --------------------------------------
